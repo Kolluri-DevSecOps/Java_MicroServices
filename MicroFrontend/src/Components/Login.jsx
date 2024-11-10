@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import './Login.css';
 
@@ -18,7 +18,7 @@ const Login = () => {
 
       // Store JWT token in local/session storage if needed
       // localStorage.setItem('jwtToken', response.data.jwtToken);
-      
+
       navigate('/dashboard'); // Redirect to the dashboard
     } catch (err) {
       setError('Invalid email or password');
@@ -46,9 +46,9 @@ const Login = () => {
         <button type="submit">Login</button>
       </form>
       {error && <p style={{ color: 'red' }}>{error}</p>}
-      
+
       <p>
-        Don't have an account? <a href="/register">Register</a>
+        Don't have an account? <Link to="/register">Register</Link>
       </p>
     </div>
   );
